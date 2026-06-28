@@ -15,7 +15,7 @@ const verifyToken = async (req, res, next) => {
         next()
     } catch (err) {
         console.log(err);
-        next(new AppError('token is invalid', 500, 'Error'));
+        next(new AppError('token is invalid', 401, 'Error'));
     }
 
 

@@ -17,5 +17,4 @@ const createProfile = asyncWrapper(async (req, res, next) => {
 })
 
 
-
 export { createProfile }
