@@ -1,6 +1,6 @@
 import { Pool } from "pg";
 import { config } from "dotenv";
-import initDatabase from "../data/createTable";
+import initDatabase from "../data/createTable.js";
 
 config();
 
