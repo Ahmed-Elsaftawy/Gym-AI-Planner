@@ -16,7 +16,9 @@ const pool = new Pool({
     database: process.env.DATABASE_URL ? undefined : process.env.DB_NAME,
     password: process.env.DATABASE_URL ? undefined : process.env.DB_PASSWORD,
     user: process.env.DATABASE_URL ? undefined : process.env.DB_USER,
-
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 const initDatabase = async () => {

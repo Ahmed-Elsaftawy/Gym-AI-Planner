@@ -4,7 +4,7 @@ import { loginValidator, registerValidator } from '../middlewares/input-validato
 
 const userRouter = express.Router();
 
-userRouter.route('/register').post(registerValidator, register);
+userRouter.route('/re   gister').post(registerValidator, register);
 userRouter.route('/login').post(loginValidator, login);
 
 
