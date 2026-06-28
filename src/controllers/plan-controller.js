@@ -26,7 +26,8 @@ const getPlan = asyncWrapper(async (req, res, next) => {
     const userId = req.currentUser.id;
 
     const plan = await getPlanService(userId);
-
+    if (!plan) return next(new AppError('something went wrong', 500, 'Error'))
+    plan.version = undefined;
     res.status(200).json({ status: 'Success', data: plan })
 })
 export { createPlan, getPlan }

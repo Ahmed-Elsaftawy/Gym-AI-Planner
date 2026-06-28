@@ -14,7 +14,7 @@ const getProfileService = async (userId) => {
     return profile.rows[0];
 }
 const getPlanService = async (userId) => {
-    const plan = await pool.query('SELECT version FROM plans WHERE user_id = $1', [userId]);
+    const plan = await pool.query('SELECT plan_json,version FROM plans WHERE user_id = $1', [userId]);
     return plan.rows[0];
 }
 
