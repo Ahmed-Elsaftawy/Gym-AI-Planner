@@ -5,7 +5,7 @@ const profileRouter = express.Router();
 
 
 profileRouter.route('/').post(verifyToken, createProfile)
-profileRouter.route('/show').post(verifyToken, getProfile);
+profileRouter.route('/show').get(verifyToken, getProfile);
 
 
 

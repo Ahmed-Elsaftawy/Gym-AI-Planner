@@ -17,7 +17,7 @@ const createProfile = asyncWrapper(async (req, res, next) => {
 })
 
 
-const getProfile = asyncWrapper(async () => {
+const getProfile = asyncWrapper(async (req, res, next) => {
     const userId = req.currentUser.id;
     if (!userId) return next(new AppError('Token is required', 401, 'Failed'));
 
