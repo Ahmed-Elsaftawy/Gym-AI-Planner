@@ -26,4 +26,4 @@ const getProfile = asyncWrapper(async () => {
 })
 
 
-export { createProfile }
+export { createProfile, getProfile }
