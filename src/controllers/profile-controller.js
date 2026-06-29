@@ -1,7 +1,7 @@
 import asyncWrapper from '../middlewares/asyncwarpper.js'
 import AppError from '../utils/appError.js';
 import { checkDetails } from '../utils/checkData.js';
-import { createProfileService } from '../models/profile.js';
+import { createProfileService, getProfileService } from '../models/profile.js';
 import { createUserService } from '../models/User.js';
 
 const createProfile = asyncWrapper(async (req, res, next) => {
@@ -14,6 +14,15 @@ const createProfile = asyncWrapper(async (req, res, next) => {
 
     const user = await createProfileService(userId, profileData);
     res.status(201).json({ status: 'Sucess', data: user });
+})
+
+
+const getProfile = asyncWrapper(async () => {
+    const userId = req.currentUser.id;
+    if (!userId) return next(new AppError('Token is required', 401, 'Failed'));
+
+    const profile = await getProfileService(userId);
+    res.status(200).json({ status: 'Success', data: profile });
 })
 
 

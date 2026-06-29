@@ -13,6 +13,11 @@ const createProfileService = async (userId, profileData) => {
     return result.rows[0];
 };
 
+const getProfileService = async (userId) => {
+    const profile = await pool.query(`SELECT
+         goal, experience, daysPerWeek, sessionLength, equipment, preferredSplit, injuries
+          FROM profiles WHERE user_id = $1`, [userId]);
 
-
-export { createProfileService };
+    return profile.rows[0];
+}
+export { createProfileService, getProfileService };
